@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
-import { BASE_URL } from "../config";
+import { DOMAIN_URL } from "../config";
 
 export const baseMetadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
+  metadataBase: new URL(DOMAIN_URL),
   applicationName: "Neon Tattoo",
   robots: {
     index: true,

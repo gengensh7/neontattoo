@@ -1,14 +1,14 @@
-import { BASE_URL } from "@/lib/config";
+import { DOMAIN_URL } from "@/lib/config";
 
 export const NeonTattooJsonLd = {
   "@context": "https://schema.org",
   "@type": "TattooParlor",
-  "@id": `${BASE_URL}/#neon-tattoo`,
-  url: BASE_URL,
+  "@id": `${DOMAIN_URL}/#neon-tattoo`,
+  url: DOMAIN_URL,
   name: "Neon Tattoo",
   description:
     "Neon Tattoo профессиональная тату-студия в Кишинёве. Индивидуальные эскизы, татуировки, пирсинг и перманентный макияж. Работаем по предварительной записи.",
-  image: [`${BASE_URL}/logo.svg`],
+  image: [`${DOMAIN_URL}/logo.svg`],
   telephone: "+37379146506",
   priceRange: "MDL",
   address: {

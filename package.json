@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "next build --webpack",
+    "build": "next build --webpack && pnpm indexnow",
+    "indexnow": "node scripts/indexnow.mjs",
+    "test:indexnow": "node --test scripts/indexnow.test.mjs",
     "start": "next start",
     "lint": "eslint"
   },

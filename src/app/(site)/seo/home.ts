@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { BASE_URL } from "@/lib/config";
+import { DOMAIN_URL } from "@/lib/config";
 import { baseMetadata } from "@/lib/seo/seo-seed";
 
 export const homePageSeo: Metadata = {
@@ -19,12 +19,12 @@ export const homePageSeo: Metadata = {
   ],
 
   alternates: {
-    canonical: `${BASE_URL}/`,
+    canonical: `${DOMAIN_URL}/`,
   },
 
   openGraph: {
     type: "website",
-    url: `${BASE_URL}/`,
+    url: `${DOMAIN_URL}/`,
     siteName: "Neon Tattoo",
     title: "Neon Tattoo | Профессиональная Тату-студия в Кишинёве",
     description:
@@ -32,7 +32,7 @@ export const homePageSeo: Metadata = {
     locale: "ru_MD",
     images: [
       {
-        url: `${BASE_URL}/og_image.png`,
+        url: `${DOMAIN_URL}/og_image.png`,
         width: 1200,
         height: 630,
         alt: "Neon Tattoo Studio Тату-студия в Кишинёве | Татуировки, Пирсинг, Перманентный Макияж",
@@ -47,7 +47,7 @@ export const homePageSeo: Metadata = {
     description:
       "Профессиональные татуировки в Кишинёве ул. Тигина 65. Индивидуальные эскизы, пирсинг, перманентный макияж. Запись: +373 79 146 506",
     images: {
-      url: `${BASE_URL}/og_image.png`,
+      url: `${DOMAIN_URL}/og_image.png`,
       alt: "Neon Tattoo Studio Тату-студия в Кишинёве",
     },
   },

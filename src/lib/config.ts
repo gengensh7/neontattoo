@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://neontattoo.xyz';
+export const DOMAIN_URL = "https://neontattoo.xyz";
