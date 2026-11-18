@@ -31,7 +31,7 @@ export const PackageCard = ({ price, title, service }: PackageCardProps) => {
       <div className="space-y-3 px-6 pb-6">
         <a
           href="https://t.me/Trinkonfox"
-          className="border-primary text-primary inline-flex w-full items-center justify-center gap-2 rounded-lg border bg-white px-4 py-3 font-medium"
+          className="border-primary text-primary-strong inline-flex w-full items-center justify-center gap-2 rounded-lg border bg-white px-4 py-3 font-medium"
           target="_blank"
           rel="noreferrer noopener"
         >
@@ -41,7 +41,7 @@ export const PackageCard = ({ price, title, service }: PackageCardProps) => {
 
         <a
           href="tel:+37379146506"
-          className="bg-primary inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-3 font-medium text-white"
+          className="bg-primary-strong inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-3 font-medium text-white"
         >
           <PhoneCall className="size-5" />
           +37379146506

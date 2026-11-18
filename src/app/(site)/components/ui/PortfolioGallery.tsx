@@ -1,12 +1,8 @@
-"use client";
-
-import "photoswipe/style.css";
-
 import Image from "next/image";
-import PhotoSwipeLightbox from "photoswipe/lightbox";
-import { useEffect } from "react";
 
 import { cn } from "@/lib/utils";
+
+import { GalleryLightbox } from "./GalleryLightbox";
 
 type ImageItem = {
   url: string;
@@ -22,21 +18,8 @@ type Props = {
 };
 
 export default function PortfolioGallery({ galleryID, images, className }: Props) {
-  useEffect(() => {
-    const lightbox = new PhotoSwipeLightbox({
-      gallery: "#" + galleryID,
-      children: "a",
-      pswpModule: () => import("photoswipe"),
-    });
-    lightbox.init();
-
-    return () => {
-      lightbox.destroy();
-    };
-  }, [galleryID]);
-
   return (
-    <div className={cn("pswp-gallery", className)} id={galleryID}>
+    <GalleryLightbox className={cn("pswp-gallery", className)} id={galleryID}>
       {images.map((image, index) => (
         <a
           key={`${galleryID}-${index}`}
@@ -45,7 +28,7 @@ export default function PortfolioGallery({ galleryID, images, className }: Props
           data-pswp-height={image.height}
           target="_blank"
           rel="noreferrer"
-          className="relative block min-h-[650px] overflow-hidden"
+          className="relative block min-h-162.5 overflow-hidden"
         >
           <Image
             src={image.url}
@@ -56,6 +39,6 @@ export default function PortfolioGallery({ galleryID, images, className }: Props
           />
         </a>
       ))}
-    </div>
+    </GalleryLightbox>
   );
 }

@@ -31,6 +31,7 @@
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-primary-strong: #47751b;
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -128,4 +129,22 @@
 
 .roboto {
   font-family: var(--font-roboto);
+}
+
+.swiperHero {
+  --swiper-pagination-bottom: 2.5rem;
+  --swiper-pagination-color: var(--primary);
+  --swiper-pagination-bullet-inactive-color: var(--primary);
+  --swiper-pagination-bullet-width: 2.5rem;
+  --swiper-pagination-bullet-height: 2px;
+  --swiper-pagination-bullet-border-radius: 0;
+}
+
+.swiperHero .swiper-pagination.swiper-pagination-horizontal {
+  display: flex;
+  right: 0;
+  width: fit-content;
+  margin-inline: auto;
+  gap: 0.75rem;
+  translate: 0 50%;
 }

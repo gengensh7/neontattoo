@@ -7,7 +7,7 @@ export const Portfolio = () => {
   return (
     <section id="portfolio" className="flex scroll-mt-20 flex-col gap-10 md:gap-15">
       <div className="container flex flex-col gap-4">
-        <div className="relative mx-auto h-[55px] w-full max-w-[350px]">
+        <div className="relative mx-auto h-13.75 w-full max-w-87.5">
           <Image
             src="/images/section-decoration.webp"
             alt=""

@@ -9,7 +9,7 @@ export const Services = () => {
       id="services"
       className="grid w-full scroll-mt-20 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
     >
-      <div className="relative min-h-[710px] w-full">
+      <div className="relative min-h-177.5 w-full">
         <Image
           src="/images/services-neon-tattoo-studio-1.webp"
           fill
@@ -38,7 +38,7 @@ export const Services = () => {
           работы.
         </p>
         <CustomNavLink
-          className="bg-primary group flex w-fit items-center justify-between gap-4 p-4 font-bold tracking-widest uppercase hover:text-white"
+          className="bg-primary-strong group flex w-fit items-center justify-between gap-4 p-4 font-bold tracking-widest uppercase hover:text-white"
           to="portfolio"
           text="Перейти в галерею"
           icon={
@@ -51,7 +51,7 @@ export const Services = () => {
         />
       </div>
 
-      <div className="relative min-h-[710px] w-full">
+      <div className="relative min-h-177.5 w-full">
         <Image
           src="/images/services-neon-tattoo-studio-2.webp"
           fill
@@ -73,7 +73,7 @@ export const Services = () => {
           результат, который сохраняет внешний вид со временем и гармонично смотрится на коже.
         </p>
         <CustomNavLink
-          className="bg-primary group flex w-fit items-center justify-between gap-4 p-4 font-bold tracking-widest uppercase hover:text-white"
+          className="bg-primary-strong group flex w-fit items-center justify-between gap-4 p-4 font-bold tracking-widest uppercase hover:text-white"
           to="portfolio"
           text="Перейти в галерею"
           icon={

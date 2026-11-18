@@ -15,8 +15,8 @@ export const CustomNavLink = ({ to, text, className, icon, isActive }: Props) =>
     <a
       href={`#${to}`}
       className={cn(
-        "hover:text-primary group relative transition-colors",
-        isActive && "text-primary font-semibold",
+        "hover:text-primary-strong group relative transition-colors",
+        isActive && "text-primary-strong font-semibold",
         className
       )}
       aria-current={isActive ? "location" : undefined}

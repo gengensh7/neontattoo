@@ -1,79 +1,66 @@
 "use client";
 
-import "leaflet/dist/leaflet.css";
+import { useEffect, useRef, useState } from "react";
 
-import type L from "leaflet";
-import { useEffect, useRef } from "react";
+import { STUDIO_MAP_URL } from "@/lib/config";
 
 export default function NeonMap() {
-  const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<L.Map | null>(null);
+  const container = useRef<HTMLDivElement>(null);
+  const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
 
   useEffect(() => {
-    const initMap = async () => {
-      const L = (await import("leaflet")).default;
+    const element = container.current;
+    if (!element) return;
 
-      const iconRetinaUrl = (await import("leaflet/dist/images/marker-icon-2x.png")).default;
-      const iconUrl = (await import("leaflet/dist/images/marker-icon.png")).default;
-      const shadowUrl = (await import("leaflet/dist/images/marker-shadow.png")).default;
+    let disposed = false;
+    let removeMap: (() => void) | undefined;
 
-      const DefaultIcon = L.Icon.Default.prototype as L.Icon.Default & {
-        _getIconUrl?: string;
-      };
-      delete DefaultIcon._getIconUrl;
+    const observer = new IntersectionObserver(
+      async entries => {
+        if (!entries.some(entry => entry.isIntersecting)) return;
+        observer.disconnect();
 
-      L.Icon.Default.mergeOptions({
-        iconRetinaUrl: iconRetinaUrl.src || iconRetinaUrl,
-        iconUrl: iconUrl.src || iconUrl,
-        shadowUrl: shadowUrl.src || shadowUrl,
-      });
-
-      if (!mapRef.current || mapInstanceRef.current) return;
-
-      const studioCoords: [number, number] = [47.0200287, 28.8473541];
-
-      const map = L.map(mapRef.current).setView(studioCoords, 17);
-
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution: "© OpenStreetMap contributors",
-      }).addTo(map);
-
-      L.marker(studioCoords)
-        .addTo(map)
-        .bindPopup(
-          `
-    <a 
-      href="https://maps.app.goo.gl/teMuLJCAnjMB1xKWA" 
-      target="_blank" 
-      rel="noopener noreferrer"
-      style="text-align: center; display: block; text-decoration: none; color: inherit;"
-    >
-      <strong>Neon Tattoo</strong><br/>
-      <small>str. Tighina 65</small><br/>
-      <small>Chișinău, MD-2001</small><br/>
-      <small style="color:#0077ff;">Open in Google Maps</small>
-    </a>
-    `
-        )
-        .openPopup();
-
-      mapInstanceRef.current = map;
-    };
-
-    initMap();
+        try {
+          const { mountMap } = await import("./mountMap");
+          if (disposed) return;
+          removeMap = mountMap(element, hasTiles => setStatus(hasTiles ? "ready" : "error"));
+        } catch {
+          if (!disposed) setStatus("error");
+        }
+      },
+      { rootMargin: "400px 0px" }
+    );
+    observer.observe(element);
 
     return () => {
-      if (mapInstanceRef.current) {
-        mapInstanceRef.current.remove();
-        mapInstanceRef.current = null;
-      }
+      disposed = true;
+      observer.disconnect();
+      removeMap?.();
     };
   }, []);
 
   return (
-    <div className="w-full">
-      <div ref={mapRef} className="z-1 h-full! min-h-142.5 w-full overflow-hidden rounded-xl" />
+    <div
+      className="relative isolate h-142.5 w-full overflow-hidden rounded-xl"
+      aria-busy={status === "loading"}
+    >
+      <div ref={container} inert={status === "error"} className="h-full w-full" />
+      {status === "loading" && (
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 z-1000 bg-gray-100 motion-safe:animate-pulse"
+        />
+      )}
+      {status === "error" && (
+        <a
+          href={STUDIO_MAP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute inset-0 z-1000 grid place-items-center bg-gray-100 underline"
+        >
+          Карта недоступна. Открыть адрес в Google Maps
+        </a>
+      )}
     </div>
   );
 }

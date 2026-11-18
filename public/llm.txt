@@ -1,0 +1,19 @@
+# Neon Tattoo
+
+> Тату-студия в Кишинёве. Художественные татуировки по индивидуальным эскизам, пирсинг, перманентный макияж и курсы татуировки.
+
+## Разделы сайта
+
+- [О студии](https://neontattoo.xyz/#about)
+- [Услуги](https://neontattoo.xyz/#services)
+- [Галерея работ](https://neontattoo.xyz/#portfolio)
+- [Пакеты и цены](https://neontattoo.xyz/#packages)
+- [Курсы татуировки](https://neontattoo.xyz/#course)
+- [Контакты и часы работы](https://neontattoo.xyz/#contacts)
+
+## Запись и адрес
+
+Студия принимает по предварительной записи. Телефон +373 79 146 506 (Telegram, WhatsApp, Viber).
+
+- [ул. Тигина 65, Кишинёв, ниже Центрального автовокзала](https://maps.app.goo.gl/teMuLJCAnjMB1xKWA)
+- [Instagram студии](https://instagram.com/trinko_tattoo)

@@ -5,7 +5,7 @@ export const Course = () => {
   return (
     <section id="course" className="scroll-m-20 pb-10 md:pb-15">
       <div className="container flex flex-col gap-10">
-        <div className="relative mx-auto h-[55px] w-full max-w-[350px]">
+        <div className="relative mx-auto h-13.75 w-full max-w-87.5">
           <Image
             src="/images/section-decoration.webp"
             alt=""
@@ -26,7 +26,7 @@ export const Course = () => {
               <h3 className="text-xl font-bold text-gray-900">
                 Курс обучения искусству татуировки
               </h3>
-              <span className="text-primary text-3xl font-bold">450 €</span>
+              <span className="text-primary-strong text-3xl font-bold">450 €</span>
               <p className="text-lg">
                 <strong>Длительность:</strong> 7 дней (один теоретический и шесть практических)
               </p>
@@ -60,7 +60,7 @@ export const Course = () => {
 
             <div className="flex flex-col gap-2">
               <h4 className="flex items-center text-lg font-semibold">
-                <span className="text-primary mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-teal-50">
+                <span className="text-primary-strong mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-teal-50">
                   1
                 </span>
                 Теоретический день
@@ -75,7 +75,7 @@ export const Course = () => {
 
             <div className="mb-8">
               <h4 className="mb-4 flex items-center text-lg font-semibold">
-                <span className="text-primary mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-teal-50">
+                <span className="text-primary-strong mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-teal-50">
                   6
                 </span>
                 Практических дней
@@ -117,7 +117,7 @@ export const Course = () => {
 
           <a
             href="tel:+37379146506"
-            className="bg-primary mx-auto flex w-fit items-center justify-center gap-2 rounded-lg px-4 py-3 font-medium text-white"
+            className="bg-primary-strong mx-auto flex w-fit items-center justify-center gap-2 rounded-lg px-4 py-3 font-medium text-white"
           >
             <PhoneCall className="size-5 shrink-0" />
             Записаться +37379146506

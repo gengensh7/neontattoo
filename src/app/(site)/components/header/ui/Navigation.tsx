@@ -13,11 +13,10 @@ const links = [
   { to: "contacts", text: "Контакты" },
 ] as const;
 
+const sectionIds = links.map(link => link.to);
+
 export const Navigation = () => {
-  const active = useActiveSection(
-    links.map(l => l.to),
-    { headerPx: 96 }
-  );
+  const active = useActiveSection(sectionIds, { headerPx: 96 });
 
   return (
     <nav className="hidden items-center gap-6 md:flex lg:gap-15">

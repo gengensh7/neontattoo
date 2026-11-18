@@ -1,9 +1,8 @@
-import dynamic from "next/dynamic";
 import Image from "next/image";
 
-const Map = dynamic(() => import("@/app/(site)/components/ui/Map"), {
-  loading: () => <p>Загрузка карты...</p>,
-});
+import { STUDIO_MAP_URL } from "@/lib/config";
+
+import Map from "../ui/Map";
 
 export const Contacts = () => {
   return (
@@ -41,7 +40,14 @@ export const Contacts = () => {
 
           <address className="flex flex-col gap-2 not-italic">
             <h3 className="text-sm font-bold uppercase">Наша студия</h3>
-            <p>ул. Тигина 65 , Кишинёв (ниже Центрального автовокзала)</p>
+            <a
+              href={STUDIO_MAP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-fit hover:underline"
+            >
+              ул. Тигина 65 , Кишинёв (ниже Центрального автовокзала)
+            </a>
           </address>
 
           <div className="flex flex-col gap-2">
@@ -52,7 +58,7 @@ export const Contacts = () => {
                 href="https://instagram.com/trinko_tattoo"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="text-primary hover:underline"
+                className="text-primary-strong hover:underline"
               >
                 @TrinkoTattoo
               </a>
@@ -72,7 +78,7 @@ export const Contacts = () => {
 
           <div className="flex flex-col gap-2">
             <h3 className="text-sm font-bold uppercase">Часы работы</h3>
-            <p className="text-primary font-bold">
+            <p className="text-primary-strong font-bold">
               Работаем исключительно по предварительной записи
             </p>
             <ul className="list-none space-y-1 pl-0">
